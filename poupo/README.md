@@ -2,34 +2,24 @@
 
 ## Descrição
 
-A primeira versão do **Poupo** é um sistema financeiro criado para ajudar o usuário a construir um planejamento financeiro personalizado com base nos dados informados. A ideia é simplificar a organização financeira, gerando um plano que se ajusta ao perfil e às necessidades individuais.
+A primeira versão do **Poupo** é um sistema financeiro simples e funcional, que auxilia o usuário na criação de um planejamento financeiro personalizado. Desenvolvido exclusivamente com **HTML**, **CSS**, **JavaScript** e **Bootstrap**, essa versão foca na coleta de dados e na geração automática do planejamento.
 
 ## Funcionalidades
 
-- **Coleta de Dados:** Entrada dos dados financeiros do usuário.
-- **Geração de Planejamento:** Criação automática de um planejamento financeiro personalizado.
+- **Coleta de Dados:** O usuário insere suas informações financeiras.
+- **Planejamento Financeiro:** Geração de um plano financeiro baseado nos dados informados.
+
+## Tecnologias Utilizadas
+
+- ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
+- ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+- ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+- ![Bootstrap](https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white)
 
 ## Como Utilizar
 
 1. Clone o repositório.
 2. Navegue até a pasta `poupo`.
-3. Siga as instruções do arquivo de configuração para rodar o sistema.
-
-## Requisitos
-
-- [Python](https://www.python.org/) (versão recomendada: x.x.x ou superior)
-- Outras dependências podem ser encontradas na documentação interna.
+3. Abra o arquivo `index.html` em seu navegador.
 
 ## Estrutura do Projeto
-
-poupo/ ├── src/ # Código fonte do sistema ├── data/ # Dados de entrada e saída ├── README.md # Este arquivo └── ...
-
-less
-Copiar
-Editar
-
-## Contribuição
-
-Contribuições são muito bem-vindas! Abra issues ou envie pull requests para colaborar com melhorias.
-
-![Badge de Versão](https://img.shields.io/badge/versão-1.0-blue)
