@@ -1,0 +1,38 @@
+section#descricao {
+    border-top: 1px solid var(--cor-branco);
+}
+
+section#descricao h2{
+   font-size: 2.5rem;
+}
+
+section#descricao span{
+    font-weight: bold;
+}
+
+section#descricao .imagem{
+    margin-left: 45px;
+}
+
+.triangulo {
+    width: 0;
+    height: 0;
+    border-left: 174vw solid transparent;
+    border-right: 0 solid var(--cor-principal);
+    border-top: 100vh solid var(--cor-principal);
+    position: absolute;
+    bottom: 144px;
+    right: 0;
+    z-index: -1;
+}
+
+@media (max-width: 768px) {
+    section#descricao {
+        height: 400px;
+    }
+
+    section#descricao .testo {
+        padding-top: 90px;
+        text-align: center;
+    }
+}
