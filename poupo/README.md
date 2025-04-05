@@ -23,3 +23,15 @@ A primeira versão do **Poupo** é um sistema financeiro simples e funcional, qu
 3. Abra o arquivo `index.html` em seu navegador.
 
 ## Estrutura do Projeto
+
+poupo/ ├── src/ # Código fonte do sistema ├── assets/ # Arquivos de estilo e imagens ├── index.html # Página inicial └── README.md # Este arquivo
+
+less
+Copiar
+Editar
+
+## Contribuição
+
+Contribuições e sugestões são sempre bem-vindas! Abra uma issue ou envie um pull request para melhorar a aplicação.
+
+![Badge de Versão](https://img.shields.io/badge/Versão-1.0-blue)
