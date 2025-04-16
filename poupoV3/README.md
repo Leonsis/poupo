@@ -80,4 +80,3 @@ Este projeto está licenciado sob a [MIT License](../LICENSE).
 ---
 
 > Siga acompanhando o repositório principal para não perder nenhuma atualização futura do Poupo! 🚀
-```
