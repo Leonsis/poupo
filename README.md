@@ -1,9 +1,6 @@
 # Poupo - Sistema de Planejamento Financeiro
 Bem-vindo ao repositório oficial do projeto **Poupo**! Este repositório reúne as diferentes versões do sistema, organizadas em pastas separadas, mostrando a evolução contínua da aplicação.
 
-- **poupo**: Primeira versão do sistema, onde o usuário informa seus dados e o sistema gera um planejamento financeiro.
-- **poupov2**: Segunda versão do sistema, que apresenta uma página inicial explicando sobre o Poupo e, em breve, integrará o planejador financeiro.
-
 # 📁 Estrutura do Repositório
 **poupo/**: Primeira versão do sistema, onde o usuário informa seus dados e o sistema gera um planejamento financeiro.
 
