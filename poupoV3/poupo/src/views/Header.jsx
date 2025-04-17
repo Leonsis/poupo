@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Link } from 'react-router-dom';
 import '../estilo/Header.css'
 import poupoLogo from '../img/logo1Escura.png'
 
@@ -10,10 +11,10 @@ function App() {
       <header>
             <div className="top-nav">
                 <div className="logo">
-                    <a href="index.php" className="d-flex">
+                    <Link to="/" className="d-flex">
                         <img src={poupoLogo} alt="Logo"/>
                         <h1>Poupo</h1>
-                    </a>
+                    </Link>
                 </div>
             </div>
         </header>

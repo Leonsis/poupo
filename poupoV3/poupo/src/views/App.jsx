@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../estilo/App.css";
+import { Link } from 'react-router-dom';
 // imgs
 import img1 from '../img/9211510__1_-removebg-preview.png'
 import img2 from '../img/imagem2.jpg'
@@ -25,7 +26,7 @@ function App() {
                     eficaz.
                   </p>
                   <button className="btn">
-                    <a href="">Saiba mais!</a>
+                    <Link to="/poupo">Saiba mais!</Link>
                   </button>
                 </div>
               </div>
@@ -105,9 +106,7 @@ function App() {
                   melhor forma possível. Simples, eficiente e feito para você!
                 </p>
                 <button className="btn">
-                  <a href="#">
-                    Venha Ver!
-                  </a>
+                  <Link to="/poupo"> Venha Ver! </Link>
                 </button>
                 
               </div>
@@ -132,7 +131,7 @@ function App() {
                   financeira hoje!
                 </p>
                 <button className="btn">
-                  <a href="">Venha Ver!</a>
+                  <Link to="/poupo">Venha Ver!</Link>
                 </button>
               </div>
             </div>
