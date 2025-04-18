@@ -9,9 +9,18 @@ span {
     font-weight: bold;
 }
 
-#sectionOne .testo{
+#sectionOne .testo {
     width: 60%;
     margin: 0 auto;
     height: 250px;
     color: var(--cor-branco);
+}
+
+#sectionTwo .bloco {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#sectionTwo .form-group {
+    text-align: center;
 }
