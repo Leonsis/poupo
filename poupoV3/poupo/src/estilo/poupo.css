@@ -1,0 +1,17 @@
+#sectionOne {
+    text-align: center;
+    background-color: var(--cor-secudaria);
+    margin-top: 0px;
+    padding-top: 60px;
+}
+
+span {
+    font-weight: bold;
+}
+
+#sectionOne .testo{
+    width: 60%;
+    margin: 0 auto;
+    height: 250px;
+    color: var(--cor-branco);
+}

@@ -9,7 +9,6 @@ import Footer from './views/Footer.jsx'
 // Estilo
 import './estilo/var.css'
 import './estilo/geral.css' 
-import './estilo/index.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 

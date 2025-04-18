@@ -1,6 +1,5 @@
 import { useState } from "react";
-import "../estilo/App.css";
-// imgs
+import "../estilo/poupo.css";
 
 
 function Poupo() {
@@ -9,19 +8,28 @@ function Poupo() {
   return (
     <>
         <main>
-            <section>
+            <section id="sectionOne">
                 <div className="container">
                     <div className="row">
-                        <div className="col-sm-12 col-md-6 d-flex align-items-center">
+                        <div className="col-sm-12">
                             <div className="testo">
-                                <img src="src/img/logo2.png" alt=""/>
-                                <h2>Bem vindo ao <span>Poupo</span></h2>
-                                <p>Uma plataforma inovadora para ajudar você a gerenciar melhor suas finanças e alcançar seus objetivos de forma mais eficaz. </p>
+                                <h2>Vamos fazer o <span>seu planejamento!</span></h2>
+                                <p>
+                                    Com nosso sistema de planejamento de metas 
+                                    podemos traças a melhor forma de você atingir <span>seu Objetivos!</span>
+                                </p>
                             </div>
                         </div>
-                        <div className="col-6 d-none d-md-block">
-                            <div className="imagem">
-                                <img src="src/img/9211510__1_-removebg-preview.png" className="img-fluid"/>
+                    </div>
+                </div>
+            </section>
+
+            <section id="sectionTwo">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-sm-12">
+                            <div className="testo">
+                                
                             </div>
                         </div>
                     </div>
