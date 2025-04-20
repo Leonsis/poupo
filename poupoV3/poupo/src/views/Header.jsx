@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import '../estilo/Header.css'
 import poupoLogo from '../img/logo1Escura.png'
 
-function App() {
+function Herader() {
   const [count, setCount] = useState(0)
 
   return (
@@ -22,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default Herader

@@ -116,14 +116,6 @@ section#organizadorFinanceiro fieldset.entradaD1 label svg:hover{
 }
 
 
-section#organizadorFinanceiro fieldset #aviso{
-    color: var(--cor-secudaria);
-    position: absolute;
-    display: inline;
-    z-index: 1;
-}
-
-
 section#organizadorFinanceiro .meta,
 section#organizadorFinanceiro .valor{
     width: 50%;
@@ -161,19 +153,6 @@ section#organizadorFinanceiro .row{
 
 .obsTesto {
     font-size: 0.8em;
-}
-
-@media (max-width: 1200px) {
-    section#organizadorFinanceiro fieldset #aviso{
-        display: block;
-    }
-}
-
-/*
-    Aqui eu estou colocando um hover em uma tag irmã da div#aviso.
-*/
-svg#alerta1:hover + div#aviso {
-    display: block !important;
 }
 
 @media (max-width: 768px) {

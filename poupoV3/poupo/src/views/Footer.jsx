@@ -2,7 +2,7 @@ import { useState } from 'react'
 import '../estilo/Footer.css'
 import poupoLogo from '../img/logo1Escura.png'
 
-function App() {
+function Footer() {
   const [count, setCount] = useState(0)
 
   return (
@@ -22,4 +22,4 @@ function App() {
   )
 }
 
-export default App
+export default Footer

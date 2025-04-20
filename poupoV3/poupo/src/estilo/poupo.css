@@ -24,3 +24,7 @@ span {
 #sectionTwo .form-group {
     text-align: center;
 }
+
+.iconAlert:hover + .alerta{
+    display: block !important;
+}
