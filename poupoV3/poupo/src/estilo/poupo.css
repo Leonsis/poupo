@@ -28,3 +28,9 @@ span {
 .iconAlert:hover + .alerta{
     display: block !important;
 }
+
+@media(max-width: 991px) {
+    #sectionOne .testo {
+        width: 100% !important;
+    }
+}
