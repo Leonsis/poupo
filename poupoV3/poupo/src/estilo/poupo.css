@@ -34,3 +34,9 @@ span {
         width: 100% !important;
     }
 }
+
+@media(min-width: 1400px) {
+    #labelTwo {
+        width: 380px;
+    }
+}

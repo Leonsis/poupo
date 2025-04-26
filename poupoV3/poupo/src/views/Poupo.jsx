@@ -38,7 +38,7 @@ function Poupo() {
                                                 <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Coloque a quantidade. Ex: 4"/>
                                             </div>
                                             <div class="form-group bloco">
-                                                <label for="exampleInputEmail1">Qual valor você vai investir por mês para essas metas?</label>
+                                                <label for="exampleInputEmail1" id="labelTwo">Qual valor você vai investir por mês para essas metas?</label>
                                                 <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Valor por mês. Ex: R$200.00"/>
                                             </div>
                                         </div>                                    
@@ -97,11 +97,16 @@ function Poupo() {
         const inputsNumber = document.querySelectorAll('input[type="number"]');
         const inputsText = document.querySelectorAll('input[type="text"]');
         const inputsRadio = document.querySelectorAll('input[type="radio"]');
-        alert(`
-            Imputs do tipo Number ${inputsNumber.length}
-            Imputs do tipo Text ${inputsText.length}
-            Imputs do tipo Radio ${inputsRadio.length}
-        `);
+        if(inputsNumber[0].value == '' || inputsNumber[0].value < 0) {
+            inputsNumber[0].style.border = '1px solid red';
+            inputsNumber[0].placeholder = 'Informe a quantidade correta.';
+        } else {
+            inputsNumber[0].style.border = '';
+            if(inputsText[0].value == '') {
+                inputsText[0].style.border = '1px solid red';
+                inputsText[0].placeholder = 'Informe o nome.';
+            }
+        }
     }
 }
 
