@@ -39,7 +39,7 @@ function Poupo() {
                                             </div>
                                             <div class="form-group bloco">
                                                 <label for="exampleInputEmail1" id="labelTwo">Qual valor você vai investir por mês para essas metas?</label>
-                                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Valor por mês. Ex: R$200.00"/>
+                                                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Valor por mês. Ex: R$200.00"/>
                                             </div>
                                         </div>                                    
                                         <div className="col-md-4">
@@ -47,6 +47,9 @@ function Poupo() {
                                                 <label for="exampleInputEmail1">Você deseja incluir uma reserva de emergência?</label>
                                                 <p style={{fontSize: "13px"}}>
                                                     OBS: A reserva é considerada uma meta.
+                                                </p>
+                                                <p className="aviso">
+
                                                 </p>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
@@ -66,17 +69,11 @@ function Poupo() {
                                             <div class="form-group row" style={{ marginTop: "20px"}}>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom04">Nome da meta</label>
-                                                    <input type="text" class="form-control" id="validationCustom04" placeholder="Moto" required />
-                                                    <div class="invalid-feedback">
-                                                        Please provide a valid state.
-                                                    </div>
+                                                    <input type="text" class="form-control" id="validationCustom04" placeholder="Moto" required />                                                    
                                                 </div>
                                                 <div class="col-md-6 mb-3">
                                                     <label for="validationCustom05">Valor da meta</label>
-                                                    <input type="text" class="form-control" id="validationCustom05" placeholder="R$22.000.00" required />
-                                                    <div class="invalid-feedback">
-                                                        Please provide a valid zip.
-                                                    </div>
+                                                    <input type="text" class="form-control" id="validationCustom05" placeholder="R$22.000.00" required />                                                   
                                                 </div>
                                             </div>
                                         </div>
@@ -96,16 +93,28 @@ function Poupo() {
     function Checker() {
         const inputsNumber = document.querySelectorAll('input[type="number"]');
         const inputsText = document.querySelectorAll('input[type="text"]');
-        const inputsRadio = document.querySelectorAll('input[type="radio"]');
+        const selected = document.querySelector('input[name="inlineRadioOptions"]:checked');
         if(inputsNumber[0].value == '' || inputsNumber[0].value < 0) {
             inputsNumber[0].style.border = '1px solid red';
             inputsNumber[0].placeholder = 'Informe a quantidade correta.';
         } else {
             inputsNumber[0].style.border = '';
-            if(inputsText[0].value == '') {
-                inputsText[0].style.border = '1px solid red';
-                inputsText[0].placeholder = 'Informe o nome.';
-            }
+            if(inputsNumber[1].value == '' || inputsNumber[0].value < 0) {
+                inputsNumber[1].style.border = '1px solid red';
+                inputsNumber[1].placeholder = 'Informe o nome.';
+            } else {
+                inputsNumber[1].style.border = '';
+                if (selected == null) {
+                    document.querySelector('.aviso').innerHTML = 'Escolha uma opção';
+                    document.querySelector('.aviso').style.color = 'red';
+                } else {
+                    document.querySelector('.aviso').innerHTML = '';
+                    if(inputsText[0] == '') {
+                        inputsText[0].style.border = '1px solid red';
+                        inputsText[0].placeholder = 'Informe a quantidade correta.';
+                    }
+                }
+            } 
         }
     }
 }
