@@ -35,22 +35,20 @@ function Poupo() {
                                         <div className="col-md-4">
                                             <div class="form-group" id="formOne">
                                                 <label for="exampleInputEmail1">Quantas metas você possui?</label>
-                                                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Coloque a quantidade. Ex: 4"/>
+                                                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Coloque a quantidade. Ex: 4" required/>
                                             </div>
                                             <div class="form-group bloco">
                                                 <label for="exampleInputEmail1" id="labelTwo">Qual valor você vai investir por mês para essas metas?</label>
-                                                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Valor por mês. Ex: R$200.00"/>
+                                                <input type="number" class="form-control" id="exampleInputEmail1" placeholder="Valor por mês. Ex: R$200.00" required />
                                             </div>
                                         </div>                                    
                                         <div className="col-md-4">
                                             <div class="form-group" id="formTwo">
                                                 <label for="exampleInputEmail1">Você deseja incluir uma reserva de emergência?</label>
                                                 <p style={{fontSize: "13px"}}>
-                                                    OBS: A reserva é considerada uma meta.
+                                                    OBS: A reserva é considerada como a primeira meta.
                                                 </p>
-                                                <p className="aviso">
-
-                                                </p>
+                                                <p className="aviso" style={{red: "red",  fontSize: "13px"}}></p>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
                                                     <label class="form-check-label" for="inlineRadio1">Sim</label>
@@ -90,28 +88,30 @@ function Poupo() {
         </>
     );
 
+    // Function para verificar os campos 
     function Checker() {
         const inputsNumber = document.querySelectorAll('input[type="number"]');
         const inputsText = document.querySelectorAll('input[type="text"]');
         const selected = document.querySelector('input[name="inlineRadioOptions"]:checked');
+
         if(inputsNumber[0].value == '' || inputsNumber[0].value < 0) {
             inputsNumber[0].style.border = '1px solid red';
-            inputsNumber[0].placeholder = 'Informe a quantidade correta.';
         } else {
             inputsNumber[0].style.border = '';
             if(inputsNumber[1].value == '' || inputsNumber[0].value < 0) {
                 inputsNumber[1].style.border = '1px solid red';
-                inputsNumber[1].placeholder = 'Informe o nome.';
             } else {
                 inputsNumber[1].style.border = '';
-                if (selected == null) {
-                    document.querySelector('.aviso').innerHTML = 'Escolha uma opção';
-                    document.querySelector('.aviso').style.color = 'red';
+                if (selected == null) {                
+                    document.querySelector('.aviso').innerHTML = 'Campo Obrigatorio'
                 } else {
-                    document.querySelector('.aviso').innerHTML = '';
-                    if(inputsText[0] == '') {
+                    document.querySelector('.aviso').innerHTML = '';                                    
+                    if(inputsText[0].value == '') {
                         inputsText[0].style.border = '1px solid red';
-                        inputsText[0].placeholder = 'Informe a quantidade correta.';
+                    } else {
+                        if(inputsText[1].value == '') {
+                            inputsText[1].style.border = '1px solid red';
+                        }
                     }
                 }
             } 
