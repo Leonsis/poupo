@@ -48,7 +48,7 @@ function Poupo() {
                                                 <p style={{fontSize: "13px"}}>
                                                     OBS: A reserva é considerada como a primeira meta.
                                                 </p>
-                                                <p className="aviso" style={{red: "red",  fontSize: "13px"}}></p>
+                                                <p className="aviso" style={{color: "red",  fontSize: "13px"}}></p>
                                                 <div class="form-check form-check-inline">
                                                     <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
                                                     <label class="form-check-label" for="inlineRadio1">Sim</label>
@@ -103,7 +103,7 @@ function Poupo() {
             } else {
                 inputsNumber[1].style.border = '';
                 if (selected == null) {                
-                    document.querySelector('.aviso').innerHTML = 'Campo Obrigatorio'
+                    document.querySelector('.aviso').innerHTML = 'Campo Obrigatorio!';                    
                 } else {
                     document.querySelector('.aviso').innerHTML = '';                                    
                     if(inputsText[0].value == '') {
