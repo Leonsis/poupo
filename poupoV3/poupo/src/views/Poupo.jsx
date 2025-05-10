@@ -13,13 +13,15 @@ function Poupo() {
                 <section id="sectionOne">
                     <div className="container">
                         <div className="row">
-                            <div className="col-sm-12" style={{height: "150px"}}>
-                                <div className="testo">
-                                    <h2>Vamos fazer o <span>seu planejamento!</span></h2>
-                                    <p>
-                                        Com nosso sistema de planejamento de metas 
-                                        podemos traças a melhor forma de você atingir <span>seu Objetivos!</span>
-                                    </p>
+                            <div className="col-sm-12 " style={{height: "150px"}}>
+                                <div className="testo d-flex align-items-center">
+                                    <div>
+                                        <h2>Vamos fazer o <span>seu planejamento!</span></h2>
+                                        <p>
+                                            Com nosso sistema de planejamento de metas 
+                                            podemos traças a melhor forma de você atingir <span>seu Objetivos!</span>
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -50,11 +52,11 @@ function Poupo() {
                                                 </p>
                                                 <p className="aviso" style={{color: "red",  fontSize: "13px"}}></p>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" />
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="true" />
                                                     <label class="form-check-label" for="inlineRadio1">Sim</label>
                                                 </div>
                                                 <div class="form-check form-check-inline">
-                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2" />
+                                                    <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="false" />
                                                     <label class="form-check-label" for="inlineRadio2">Não</label>
                                                 </div>
                                                 <FontAwesomeIcon icon={faCircleExclamation} style={{ color: "var(--cor-principal)"}} className="iconAlert"/>
@@ -76,7 +78,7 @@ function Poupo() {
                                             </div>
                                         </div>
                                         <div className="d-flex justify-content-center">
-                                            <button class="btn" type="submit" onClick={Checker}>Registrar meta!</button>
+                                            <a class="btn" type="submit" style= {{ border: "2px solid" }} onClick={Checker}>Registrar meta!</a>
                                         </div>                                    
                                     </form>                                
                                 </div>
@@ -88,34 +90,69 @@ function Poupo() {
         </>
     );
 
-    // Function para verificar os campos 
+    // Function para verificar se os campos foram preenchidos.
     function Checker() {
         const inputsNumber = document.querySelectorAll('input[type="number"]');
         const inputsText = document.querySelectorAll('input[type="text"]');
         const selected = document.querySelector('input[name="inlineRadioOptions"]:checked');
-
-        if(inputsNumber[0].value == '' || inputsNumber[0].value < 0) {
-            inputsNumber[0].style.border = '1px solid red';
-        } else {
-            inputsNumber[0].style.border = '';
-            if(inputsNumber[1].value == '' || inputsNumber[0].value < 0) {
-                inputsNumber[1].style.border = '1px solid red';
+        const aviso = document.querySelector('.aviso');
+    
+        let isValid = true;
+    
+        // Verifica os campos numéricos
+        inputsNumber.forEach((input) => {
+            if (input.value === '' || input.value < 0) {
+                input.style.border = '1px solid red';
+                isValid = false;
             } else {
-                inputsNumber[1].style.border = '';
-                if (selected == null) {                
-                    document.querySelector('.aviso').innerHTML = 'Campo Obrigatorio!';                    
-                } else {
-                    document.querySelector('.aviso').innerHTML = '';                                    
-                    if(inputsText[0].value == '') {
-                        inputsText[0].style.border = '1px solid red';
-                    } else {
-                        if(inputsText[1].value == '') {
-                            inputsText[1].style.border = '1px solid red';
-                        }
-                    }
-                }
-            } 
+                input.style.border = '';
+            }
+        });
+    
+        // Verifica se alguma opção de radio está selecionada
+        if (!selected) {
+            aviso.innerHTML = 'Campo Obrigatório!';
+            isValid = false;
+        } else {
+            aviso.innerHTML = '';
         }
+    
+        // Verifica os campos de texto
+        inputsText.forEach((input) => {
+            if (input.value === '') {
+                input.style.border = '1px solid red';
+                isValid = false;
+            } else {
+                input.style.border = '';
+            }
+        });
+    
+        if(isValid) {
+            inputsNumber[0].disabled = true;
+            inputsNumber[1].disabled = true;
+
+            const qMetas = inputsNumber[0].value;
+            const valorMensal = inputsNumber[1].value;
+            const reserva = selected.value;
+            
+            let nomesMetas
+            let valoresMetas
+            console.log(
+                `Quantidade de metas: ${qMetas},
+            Valor mensal: ${valorMensal},
+            reserva: ${reserva},
+            nome das metas: ${nomesMetas},
+            Valor das metas: ${valoresMetas}.
+            `);
+            registro();
+        } else {
+            alert('Preencha os campos!');
+        }
+    }
+    
+
+    function registro() {
+        alert('Deu certo');
     }
 }
 
