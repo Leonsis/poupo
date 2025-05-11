@@ -77,7 +77,7 @@ function Poupo() {
                                                 </div>
                                             </div>
                                         </div>
-                                        <div className="d-flex justify-content-center">
+                                        <div className="d-flex justify-content-center" id="btnRegistro">
                                             <a class="btn" type="submit" style= {{ border: "2px solid" }} onClick={Checker}>Registrar meta!</a>
                                         </div>                                    
                                     </form>                                
@@ -90,15 +90,15 @@ function Poupo() {
         </>
     );
 
+    
     // Function para verificar se os campos foram preenchidos.
     function Checker() {
         const inputsNumber = document.querySelectorAll('input[type="number"]');
         const inputsText = document.querySelectorAll('input[type="text"]');
         const selected = document.querySelector('input[name="inlineRadioOptions"]:checked');
         const aviso = document.querySelector('.aviso');
-    
         let isValid = true;
-    
+
         // Verifica os campos numéricos
         inputsNumber.forEach((input) => {
             if (input.value === '' || input.value < 0) {
@@ -108,7 +108,7 @@ function Poupo() {
                 input.style.border = '';
             }
         });
-    
+
         // Verifica se alguma opção de radio está selecionada
         if (!selected) {
             aviso.innerHTML = 'Campo Obrigatório!';
@@ -116,7 +116,7 @@ function Poupo() {
         } else {
             aviso.innerHTML = '';
         }
-    
+
         // Verifica os campos de texto
         inputsText.forEach((input) => {
             if (input.value === '') {
@@ -126,33 +126,42 @@ function Poupo() {
                 input.style.border = '';
             }
         });
-    
-        if(isValid) {
-            inputsNumber[0].disabled = true;
-            inputsNumber[1].disabled = true;
 
-            const qMetas = inputsNumber[0].value;
-            const valorMensal = inputsNumber[1].value;
-            const reserva = selected.value;
-            
-            let nomesMetas
-            let valoresMetas
-            console.log(
-                `Quantidade de metas: ${qMetas},
+        inputsNumber[0].disabled = true;
+        inputsNumber[1].disabled = true;
+
+        const qMetas = parseInt(inputsNumber[0].value);
+        const valorMensal = parseFloat(inputsNumber[1].value);
+        const reserva = selected.value;
+        let nomeMeta = inputsText[0].value;
+        let valorMeta = inputsText[1].value;
+
+        // Verifica se o número de metas corresponde ao valor de qMetas
+        if (isValid) {
+            registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta);
+        } else {
+            alert('Preencha os campos corretamente!');
+        }
+    }
+
+    /* Estou com um problema de adicionar os valores no array */
+    let nomesMetas = []; // Problema
+    let valoresMetas = []; //Problema
+    function registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta) {
+        nomesMetas.push(nomeMeta);
+        valoresMetas.push(valorMeta);
+
+        console.log(
+            `Quantidade de metas: ${qMetas},
             Valor mensal: ${valorMensal},
             reserva: ${reserva},
             nome das metas: ${nomesMetas},
             Valor das metas: ${valoresMetas}.
-            `);
-            registro();
-        } else {
-            alert('Preencha os campos!');
-        }
-    }
-    
+        `);
 
-    function registro() {
-        alert('Deu certo');
+        if(nomesMetas.length == qMetas && valoresMetas.length == qMetas) {
+            document.getElementById('btnRegistro').classList.add('d-none');            
+        }
     }
 }
 
