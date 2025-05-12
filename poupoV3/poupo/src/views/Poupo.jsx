@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
-
 import "../estilo/poupo.css";
 
+// Declaração de variaveis globais
+let nomesMetas = []; // function registro()
+let valoresMetas = []; // function registro()
 
 function Poupo() {
 
@@ -86,6 +88,19 @@ function Poupo() {
                         </div>
                     </div>
                 </section>
+
+                <section className="three" style={{ marginBottom: "20px" }}>
+                    <div className="container">
+                        <div className="row" id="blocoRegistro">
+                            
+                            {/* Aqui fica a parte visual dos registros */}
+
+                            <div className="d-flex justify-content-center d-none" id="btnPlanejar">
+                                <a class="btn" type="submit" style= {{ border: "2px solid" }} onClick={Checker}>Planejar!</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </>
     );
@@ -144,12 +159,29 @@ function Poupo() {
         }
     }
 
-    /* Estou com um problema de adicionar os valores no array */
-    let nomesMetas = []; // Problema
-    let valoresMetas = []; //Problema
+    // Function que registra os dados para serem manipulados e cria o registro visual.
     function registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta) {
+        // Asicionando os nomes e os valores das metas nos arrays.
         nomesMetas.push(nomeMeta);
         valoresMetas.push(valorMeta);
+
+        // Criando a parte visual dos registros
+        const divOne = document.createElement('div');
+        divOne.classList.add('col-12');
+        const divTwo = document.createElement('div');
+        divTwo.classList.add('row');
+        const divThree = document.createElement('div');
+        
+        divThree.classList.add('col-4');
+        divThree.innerHTML = `Meta: ${nomesMetas[0]}`;
+
+        divFuor.classList.add('col-4');
+        divFuor.innerHTML = `Valor: ${valoresMetas[0]}`;
+        
+        divOne.appendChild(divTwo);
+
+        const blocoRegistro = document.getElementById('blocoRegistro');
+        
 
         console.log(
             `Quantidade de metas: ${qMetas},
@@ -160,7 +192,8 @@ function Poupo() {
         `);
 
         if(nomesMetas.length == qMetas && valoresMetas.length == qMetas) {
-            document.getElementById('btnRegistro').classList.add('d-none');            
+            document.getElementById('btnRegistro').classList.add('d-none');
+            document.getElementById('btnPlanejar').classList.remove('d-none');         
         }
     }
 }
