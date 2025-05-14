@@ -168,20 +168,42 @@ function Poupo() {
         // Criando a parte visual dos registros
         const divOne = document.createElement('div');
         divOne.classList.add('col-12');
+        divOne.style.marginTop = '10px';
+        divOne.style.padding = '10px';
+        divOne.style.border = '2px solid';
+        divOne.style.borderRadius = '5px';
+
+
         const divTwo = document.createElement('div');
         divTwo.classList.add('row');
-        const divThree = document.createElement('div');
         
+        const divThree = document.createElement('div');
         divThree.classList.add('col-4');
         divThree.innerHTML = `Meta: ${nomesMetas[0]}`;
 
+        const divFuor = document.createElement('div');
         divFuor.classList.add('col-4');
         divFuor.innerHTML = `Valor: ${valoresMetas[0]}`;
+
+        const divFive = document.createElement('div');
+        divFive.classList.add('col-4');
+
+        const divSix = document.createElement('div');
+        divSix.style.border = '2px solid';
+        divSix.style.borderRadius = '5px';
+        divSix.style.padding = '5px';
+        divSix.style.width = '100px';
+        divSix.style.textAlign = 'center';
+        divSix.innerHTML = 'Registrado';
         
         divOne.appendChild(divTwo);
+        divTwo.appendChild(divThree);
+        divTwo.appendChild(divFuor);
+        divTwo.appendChild(divFive);
+        divFive.appendChild(divSix)
 
         const blocoRegistro = document.getElementById('blocoRegistro');
-        
+        blocoRegistro.appendChild(divOne);
 
         console.log(
             `Quantidade de metas: ${qMetas},
