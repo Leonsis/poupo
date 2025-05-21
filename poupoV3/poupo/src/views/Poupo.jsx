@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircleExclamation } from '@fortawesome/free-solid-svg-icons'
 import "../estilo/poupo.css";
 
-// Declaração de variaveis globais
-let nomesMetas = []; // function registro()
-let valoresMetas = []; // function registro()
+
 
 function Poupo() {
 
@@ -62,7 +60,7 @@ function Poupo() {
                                                     <label class="form-check-label" for="inlineRadio2">Não</label>
                                                 </div>
                                                 <FontAwesomeIcon icon={faCircleExclamation} style={{ color: "var(--cor-principal)"}} className="iconAlert"/>
-                                                <div className="alerta d-none" style={{padding: "10px", background: "var(--cor-principal)", border: "1px solid var(--cor-secudaria)", borderRadius: "10px", fontWeight: "bold", position: "absolute"}}>
+                                                <div className="alerta d-none" style={{padding: "10px", background: "var(--cor-branco)", border: "1px solid var(--cor-secudaria)", borderRadius: "10px", fontWeight: "bold", position: "absolute"}}>
                                                     <p>
                                                         É orbigatorio informar se deseja incluir reserva ou não.
                                                     </p>
@@ -96,7 +94,7 @@ function Poupo() {
                             {/* Aqui fica a parte visual dos registros */}
 
                             <div className="d-flex justify-content-center d-none" id="btnPlanejar">
-                                <a class="btn" type="submit" style= {{ border: "2px solid" }} onClick={Checker}>Planejar!</a>
+                                <a class="btn" type="submit" style= {{ border: "2px solid" }} onClick>Planejar!</a>
                             </div>
                         </div>
                     </div>
@@ -104,120 +102,149 @@ function Poupo() {
             </main>
         </>
     );
-
     
-    // Function para verificar se os campos foram preenchidos.
-    function Checker() {
-        const inputsNumber = document.querySelectorAll('input[type="number"]');
-        const inputsText = document.querySelectorAll('input[type="text"]');
-        const selected = document.querySelector('input[name="inlineRadioOptions"]:checked');
-        const aviso = document.querySelector('.aviso');
-        let isValid = true;
+}
 
-        // Verifica os campos numéricos
-        inputsNumber.forEach((input) => {
-            if (input.value === '' || input.value < 0) {
-                input.style.border = '1px solid red';
-                isValid = false;
-            } else {
-                input.style.border = '';
-            }
-        });
+// Declaração de variaveis globais
+let nomesMetas = []; // registro()
+let valoresMetas = []; // registro()
+let contador = 0; // Checker()
 
-        // Verifica se alguma opção de radio está selecionada
-        if (!selected) {
-            aviso.innerHTML = 'Campo Obrigatório!';
+// Function para verificar se os campos foram preenchidos.
+function Checker() {
+    const inputsNumber = document.querySelectorAll('input[type="number"]');
+    const inputsText = document.querySelectorAll('input[type="text"]');
+    const selected = document.querySelector('input[name="inlineRadioOptions"]:checked');
+    const aviso = document.querySelector('.aviso');
+    let isValid = true;
+
+    // Verifica os campos numéricos
+    inputsNumber.forEach((input) => {
+        if (input.value === '' || input.value < 0) {
+            input.style.border = '1px solid red';
             isValid = false;
         } else {
-            aviso.innerHTML = '';
+            input.style.border = '';
         }
+    });
 
-        // Verifica os campos de texto
-        inputsText.forEach((input) => {
-            if (input.value === '') {
-                input.style.border = '1px solid red';
-                isValid = false;
-            } else {
-                input.style.border = '';
-            }
-        });
-
-        inputsNumber[0].disabled = true;
-        inputsNumber[1].disabled = true;
-
-        const qMetas = parseInt(inputsNumber[0].value);
-        const valorMensal = parseFloat(inputsNumber[1].value);
-        const reserva = selected.value;
-        let nomeMeta = inputsText[0].value;
-        let valorMeta = inputsText[1].value;
-
-        // Verifica se o número de metas corresponde ao valor de qMetas
-        if (isValid) {
-            registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta);
-        } else {
-            alert('Preencha os campos corretamente!');
-        }
+    // Verifica se alguma opção de radio está selecionada
+    if (!selected) {
+        aviso.innerHTML = 'Campo Obrigatório!';
+        isValid = false;
+    } else {
+        aviso.innerHTML = '';
     }
 
-    // Function que registra os dados para serem manipulados e cria o registro visual.
-    function registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta) {
-        // Asicionando os nomes e os valores das metas nos arrays.
-        nomesMetas.push(nomeMeta);
-        valoresMetas.push(valorMeta);
-
-        // Criando a parte visual dos registros
-        const divOne = document.createElement('div');
-        divOne.classList.add('col-12');
-        divOne.style.marginTop = '10px';
-        divOne.style.padding = '10px';
-        divOne.style.border = '2px solid';
-        divOne.style.borderRadius = '5px';
-
-
-        const divTwo = document.createElement('div');
-        divTwo.classList.add('row');
-        
-        const divThree = document.createElement('div');
-        divThree.classList.add('col-4');
-        divThree.innerHTML = `Meta: ${nomesMetas[0]}`;
-
-        const divFuor = document.createElement('div');
-        divFuor.classList.add('col-4');
-        divFuor.innerHTML = `Valor: ${valoresMetas[0]}`;
-
-        const divFive = document.createElement('div');
-        divFive.classList.add('col-4');
-
-        const divSix = document.createElement('div');
-        divSix.style.border = '2px solid';
-        divSix.style.borderRadius = '5px';
-        divSix.style.padding = '5px';
-        divSix.style.width = '100px';
-        divSix.style.textAlign = 'center';
-        divSix.innerHTML = 'Registrado';
-        
-        divOne.appendChild(divTwo);
-        divTwo.appendChild(divThree);
-        divTwo.appendChild(divFuor);
-        divTwo.appendChild(divFive);
-        divFive.appendChild(divSix)
-
-        const blocoRegistro = document.getElementById('blocoRegistro');
-        blocoRegistro.appendChild(divOne);
-
-        console.log(
-            `Quantidade de metas: ${qMetas},
-            Valor mensal: ${valorMensal},
-            reserva: ${reserva},
-            nome das metas: ${nomesMetas},
-            Valor das metas: ${valoresMetas}.
-        `);
-
-        if(nomesMetas.length == qMetas && valoresMetas.length == qMetas) {
-            document.getElementById('btnRegistro').classList.add('d-none');
-            document.getElementById('btnPlanejar').classList.remove('d-none');         
+    // Verifica os campos de texto
+    inputsText.forEach((input) => {
+        if (input.value === '') {
+            input.style.border = '1px solid red';
+            isValid = false;
+        } else {
+            input.style.border = '';
         }
+    });
+
+    let qMetas = parseInt(inputsNumber[0].value);
+    const valorMensal = parseFloat(inputsNumber[1].value);
+    let reserva = selected.value;
+    let nomeMeta = inputsText[0].value;
+    let valorMeta = inputsText[1].value;
+
+    // Verifica se o número de metas corresponde ao valor de qMetas
+    if (isValid) {
+        // Para não ter problema de registro com mais de uma reserva.
+        if (reserva && contador >= 1) {
+            reserva = false;        
+        }
+
+        // Se a freserva for verdadeira vai ser acrescentado +1 em que metas, pois a reserva se torna uma meta.
+        /* Essa estrutura de decisão tem qu estár depois reserva && contador >= 1, pois o primiero vair 
+           transformar a reservae me falso caso ela já tenha sido listada na primeira vez.
+        *//*
+        if(reserva) {
+            qMetas += 1;
+        }*/
+        inputsNumber[0].disabled = true;
+        inputsNumber[1].disabled = true;
+        
+        contador ++;
+        registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta);
+    } else {
+        alert('Preencha os campos corretamente!');
     }
 }
 
+// Function que registra os dados para serem manipulados e cria o registro visual.
+function registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta) {
+    // Asicionando os nomes e os valores das metas nos arrays.
+    nomesMetas.push(nomeMeta);
+    valoresMetas.push(valorMeta);
+
+    // Criando a parte visual dos registros
+    const divOne = document.createElement('div');
+    divOne.classList.add('col-12');
+    divOne.style.marginTop = '10px';
+    divOne.style.padding = '10px';
+    divOne.style.border = '1px solid var(--cor-principal)';
+    divOne.style.borderRadius = '5px';
+
+    const divTwo = document.createElement('div');
+    divTwo.classList.add('row');
+    divTwo.classList.add('d-flex');
+    divTwo.classList.add('justify-content-between');
+
+    const divThree = document.createElement('div');
+    divThree.classList.add('col-4');
+
+    // Estrutura de descisão para a reserva
+    if(reserva) {
+        divThree.innerHTML = `Reserva`;
+    } else {
+        divThree.innerHTML = `Meta: ${nomesMetas[0]}`;
+    }
+    const divFuor = document.createElement('div');
+    divFuor.classList.add('col-4');
+    
+    // Estrutura de descisão para a reserva
+    if(reserva) {
+        divFuor.innerHTML = `Processando`;
+    } else {
+        divFuor.innerHTML = `Valor: ${valoresMetas[0]}`;
+    }
+    const divFive = document.createElement('div');
+    divFive.classList.add('col-2');
+
+    const divSix = document.createElement('div');
+    divSix.style.border = '1px solid var(--cor-principal)';
+    divSix.style.borderRadius = '5px';
+    divSix.style.padding = '5px';
+    divSix.style.width = '100px';
+    divSix.style.textAlign = 'center';
+    divSix.innerHTML = 'Registrado';
+    
+    divOne.appendChild(divTwo);
+    divTwo.appendChild(divThree);
+    divTwo.appendChild(divFuor);
+    divTwo.appendChild(divFive);
+    divFive.appendChild(divSix)
+
+    const blocoRegistro = document.getElementById('blocoRegistro');
+    blocoRegistro.appendChild(divOne);
+
+    console.log(
+        `Quantidade de metas: ${qMetas},
+        Valor mensal: ${valorMensal},
+        reserva: ${reserva},
+        nome das metas: ${nomesMetas},
+        Valor das metas: ${valoresMetas}.
+    `);
+
+    // OBS: Estou tendo problema com o qMetas, no verificados de finalização de registro.
+    if(nomesMetas.length == qMetas && valoresMetas.length == qMetas) {
+        document.getElementById('btnRegistro').classList.add('d-none');
+        document.getElementById('btnPlanejar').classList.remove('d-none');         
+    }
+}
 export default Poupo;
