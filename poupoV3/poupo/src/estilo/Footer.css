@@ -1,4 +1,10 @@
 footer {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+footer .container {
     background: var(--cor-principal);
-    padding: 5px 0px;
+    padding: 25px;
+    border-radius: 10px;
 }

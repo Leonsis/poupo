@@ -1,6 +1,7 @@
 section button.btn:hover {
     background-color: var(--cor-principal) !important;
 }
+
 @media(min-width: 991.98px){
     .imagem3 .imagem img {
         width: 70%;
@@ -42,17 +43,12 @@ section#descricao {
     z-index: 1;
 }
 
-section#descricao::before {
-    content: "";
-    width: 0;
-    height: 0;
-    border-left: 166vw solid transparent;
-    border-right: 0 solid var(--cor-principal);
-    border-top: 99vh solid var(--cor-principal);
-    position: absolute;
-    bottom: -120px;
-    right: 0;
-    z-index: -1;
+section#descricao .container {
+    padding: 25px;
+    margin-top: 0px;
+    background-color: var(--cor-terciaria);
+    border-radius: 10px;
+    
 }
 
 section#descricao h2{

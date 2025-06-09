@@ -26,12 +26,12 @@ function App() {
                     eficaz.
                   </p>
                   <button className="btn">
-                    <Link to="/poupo">Saiba mais!</Link>
+                    <Link to="/login">Saiba mais!</Link>
                   </button>
                 </div>
               </div>
               <div className="col-6 d-none d-md-block">
-                <div className="imagem">
+                <div className="d-flex justify-content-center">
                   <img src={img1} className="img-fluid" />
                 </div>
               </div>
@@ -39,7 +39,7 @@ function App() {
           </div>
         </section>
 
-        <section id="organizadorFinanceiro" style={{ borderTop: "1px solid var(--cor-principal)" }}>
+        <section id="organizadorFinanceiro">
           <div className="container">
             <div className="row">
               <div className="col-6">
@@ -106,7 +106,7 @@ function App() {
                   melhor forma possível. Simples, eficiente e feito para você!
                 </p>
                 <button className="btn">
-                  <Link to="/poupo"> Venha Ver! </Link>
+                  <Link to="/login"> Venha Ver! </Link>
                 </button>
                 
               </div>
@@ -120,8 +120,8 @@ function App() {
           </div>
         </section>
 
-        <section className="secao" style={{ paddingBottom: "30px", backgroundColor: "var(--cor-terciaria)", }} >
-          <div className="container">
+        <section className="secao" style={{ paddingBottom: "30px", border: "none" }} >
+          <div className="container" style={{ backgroundColor: "var(--cor-terciaria)", borderRadius: "10px", padding: "25px"}}>
             <div className="row">
               <div className="col-12" style={{ textAlign: "center" }}>
                 <h2>Comece a Controlar Suas Finanças Agora!</h2>
@@ -131,7 +131,7 @@ function App() {
                   financeira hoje!
                 </p>
                 <button className="btn">
-                  <Link to="/poupo">Venha Ver!</Link>
+                  <Link to="/login">Venha Ver!</Link>
                 </button>
               </div>
             </div>

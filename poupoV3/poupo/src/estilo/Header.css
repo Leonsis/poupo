@@ -1,19 +1,15 @@
 header { 
-    background-color: var(--cor-principal);
-    border-bottom: 1px solid var(--cor-branco);
-    position: relative;
-    z-index: 2;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
-.top-nav {
-    margin: 0 30px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    color: var(--cor-secudaria);
-    height: 100px;
-    padding: 1em;
+header .btn-login {
+    flex-direction: row-reverse;
+}
+
+header .btn-login .btn{
+    background-color: var(--cor-secudaria);
+    color: var(--cor-branco);
 }
 
 .menu {
