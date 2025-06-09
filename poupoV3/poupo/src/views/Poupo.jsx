@@ -233,14 +233,6 @@ function registro(qMetas, valorMensal, reserva, nomeMeta, valorMeta) {
     const blocoRegistro = document.getElementById('blocoRegistro');
     blocoRegistro.appendChild(divOne);
 
-    console.log(
-        `Quantidade de metas: ${qMetas},
-        Valor mensal: ${valorMensal},
-        reserva: ${reserva},
-        nome das metas: ${nomesMetas},
-        Valor das metas: ${valoresMetas}.
-    `);
-
     // OBS: Estou tendo problema com o qMetas, no verificados de finalização de registro.
     if(nomesMetas.length == qMetas && valoresMetas.length == qMetas) {
         document.getElementById('btnRegistro').classList.add('d-none');
